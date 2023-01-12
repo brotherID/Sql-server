@@ -1,0 +1,14 @@
+-- Start in master
+USE MASTER;
+
+-- Add users
+ALTER DATABASE PCH_DATACENTER SET MULTI_USER
+GO
+
+************************************************
+-- Kick off users, roll back current work
+ALTER DATABASE [WILDLIFE] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+
+*************************************************
+sp_who2
