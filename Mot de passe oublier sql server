@@ -1,0 +1,11 @@
+Si vous avez oublié le mot de passe de votre serveur SQL Server, vous pouvez réinitialiser le mot de passe en suivant ces étapes :
+1) Utiliser l'authentification Windows ensuite new query : 
+****************************************************************************
+Chercher  le login en question
+USE master;
+SELECT name, password_hash
+FROM sys.sql_logins
+WHERE name = 'votre_nom_utilisateur';  
+****************************************************************************
+Modifier le password avec le login suivant :
+ALTER LOGIN votre_nom_utilisateur WITH PASSWORD = 'nouveau_mot_de_passe';
